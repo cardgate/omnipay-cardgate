@@ -1,0 +1,31 @@
+HTTP/1.0 200 OK
+Server: cloudflare-nginx
+Date: Fri, 05 Jun 2015 09:25:11 GMT
+Content-Type: application/xml; charset=utf-8
+Content-Length: 962
+Connection: keep-alive
+Set-Cookie: __cfduid=d32a5c1e4f86be0e97367a8f0052ec74c1433496311; expires=Sat, 04-Jun-16 09:25:11 GMT; path=/; domain=.cardgate.com; HttpOnly
+CF-RAY: 1f1ad428bb660c1d-AMS
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <headers>
+        <response_timestamp>2015-06-05T11:25:11.348076</response_timestamp>
+        <uuid>55bfa739a7824e85b28baa7a0b4a72cd</uuid>
+    </headers>
+    <transaction>
+        <payout type="hash"/>
+        <status type="integer">300</status>
+        <payout_amount>TEST_TransactionReference_000123</payout_amount>
+        <payment_method>ideal</payment_method>
+        <timestamp>2015-06-05T11:25:11</timestamp>
+        <site_id type="integer">1593</site_id>
+        <invoice_date>TEST_TransactionReference_000123</invoice_date>
+        <currency>EUR</currency>
+        <amount type="integer">1000</amount>
+        <invoice_number>TEST_TransactionReference_000123</invoice_number>
+        <payout_currency>TEST_TransactionReference_000123</payout_currency>
+        <ref>TEST_TransactionReference_000123</ref>
+        <transaction_id type="integer">3768165</transaction_id>
+    </transaction>
+</response>

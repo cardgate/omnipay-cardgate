@@ -1,0 +1,37 @@
+{
+    "name": "cardgate/omnipay-cardgate",
+    "description": "Cardgate gateway for the Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "cardgate"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cardgate",
+            "email": "tech@cardgate.com"
+        },
+        {
+            "name": "Cardgate",
+            "homepage": "https://cardgate.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\Cardgate\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.3"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

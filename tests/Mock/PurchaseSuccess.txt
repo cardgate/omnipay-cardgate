@@ -1,0 +1,18 @@
+HTTP/1.0 201 CREATED
+Date: Fri, 22 May 2015 13:57:03 GMT
+Server: Apache
+Location: https://api-test.cardgate.com/rest/v1/transactions/3768165/
+Content-Length: 476
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <headers>
+        <response_timestamp>2015-05-22T15:57:07.299965</response_timestamp>
+        <uuid>629e2e736ce949498d619094c96edc9f</uuid>
+    </headers>
+    <payment>
+        <transaction_id type="integer">3768165</transaction_id>
+        <issuer_auth_url>https://gateway.cardgateplus.com/simulator/?return_url=http://omnipay-cardgate.dev1.dbcorp.nl/return.php&amp;ec=3768165</issuer_auth_url>
+    </payment>
+</response>

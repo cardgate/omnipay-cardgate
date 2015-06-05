@@ -1,0 +1,30 @@
+HTTP/1.0 200 OK
+Server: Apache
+Date: Fri, 22 May 2015 13:41:57 GMT
+Content-Length: 693
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <headers>
+        <response_timestamp>2015-05-22T15:31:43.353207</response_timestamp>
+        <uuid>5bda5f06bb444a748e1e6bb05c6b86f7</uuid>
+    </headers>
+    <issuers type="list">
+        <issuer>
+            <list>Short</list>
+            <name>Test Issuer</name>
+            <id type="integer">121</id>
+        </issuer>
+        <issuer>
+            <list>Short</list>
+            <name>Test Issuer 2</name>
+            <id type="integer">151</id>
+        </issuer>
+        <issuer>
+            <list>Long</list>
+            <name>Test Issuer 3</name>
+            <id type="integer">171</id>
+        </issuer>
+    </issuers>
+</response>

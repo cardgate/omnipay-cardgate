@@ -1,0 +1,54 @@
+HTTP/1.0 200 OK
+Server: cloudflare-nginx
+Date: Fri, 05 Jun 2015 11:20:32 GMT
+Content-Type: application/xml; charset=utf-8
+Content-Length: 1349
+Connection: keep-alive
+Set-Cookie: __cfduid=de35961da3b3ade8a6a179298e3f68baf1433503232; expires=Sat, 04-Jun-16 11:20:32 GMT; path=/; domain=.cardgate.com; HttpOnly
+CF-RAY: 1f1b7d20bcd00c77-AMS
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <headers>
+        <response_timestamp>2015-06-05T13:20:32.409378</response_timestamp>
+        <uuid>e40d3e9816f147d798f8c14ab46f5cff</uuid>
+    </headers>
+    <billing_options type="list">
+        <billing_option>
+            <name>Bank transfer</name>
+            <id>banktransfer</id>
+        </billing_option>
+        <billing_option>
+            <name>Credit Card</name>
+            <id>creditcard</id>
+        </billing_option>
+        <billing_option>
+            <name>MisterCash</name>
+            <id>mistercash</id>
+        </billing_option>
+        <billing_option>
+            <name>iDEAL</name>
+            <id>ideal</id>
+        </billing_option>
+        <billing_option>
+            <name>Giropay</name>
+            <id>giropay</id>
+        </billing_option>
+        <billing_option>
+            <name>SofortBanking</name>
+            <id>directebanking</id>
+        </billing_option>
+        <billing_option>
+            <name>Direct Debit</name>
+            <id>directdebit</id>
+        </billing_option>
+        <billing_option>
+            <name>Paypal Checkout</name>
+            <id>paypal</id>
+        </billing_option>
+        <billing_option>
+            <name>Przelewy24</name>
+            <id>przelewy24</id>
+        </billing_option>
+    </billing_options>
+</response>
