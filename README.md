@@ -13,7 +13,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "cardgate/omnipay-cardgate": "~1.0"
+        "cardgate/omnipay-cardgate": "~2.0"
     }
 }
 ```
