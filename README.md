@@ -1,9 +1,6 @@
-# Omnipay: Cardgate
+![CardGate](https://cdn.curopayments.com/thumb/200/logos/cardgate.png)
 
-**Cardgate gateway for the Omnipay PHP payment processing library**
-
-[Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements Cardgate support for Omnipay.
+# CardGate plugin for the [Omnipay PHP payment processing library](https://github.com/omnipay/omnipay) #
 
 ## Installation
 
