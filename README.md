@@ -30,7 +30,7 @@ The following gateways are provided by this package:
 * Cardgate
 
 For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay)
-repository. See also the [Cardgate RESTFul Documentation](https://www.cardgate.com/api-docs/cg-api-rest.html)
+repository. See also the [Cardgate RESTFul Documentation](https://www.curopayments.com/docs/api/?rest_Introduction )
 
 ## Example
 
