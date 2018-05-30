@@ -26,16 +26,16 @@ abstract class AbstractRequest extends BaseAbstractRequest
     public function getUrl()
     {
         if ($this->getTestMode()) {
-            return 'https://api-test.cardgate.com';
+            return 'https://secure-staging.curopayments.net';
         } else {
-            return 'https://api.cardgate.com';
+            return 'https://secure.curopayments.net';
         }
     }
 
     /**
-     * We need this for api-test.cardgate.com because the hostname does not match the cert...
+     * We need this because the hostname does not match the cert...
      *
-     * @param bool $bTestmode_            
+     * @param bool $bTestmode_
      */
     protected function setSslVerification()
     {
@@ -44,11 +44,11 @@ abstract class AbstractRequest extends BaseAbstractRequest
         else
             $this->httpClient->setSslVerification(); // set to defaults
     }
-    
+
     // ------------ Request specific Getter'n'Setters ------------ //
-    
+
     // ------------ Getter'n'Setters ------------ //
-    
+
     /**
      *
      * @return string
@@ -60,7 +60,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
+     * @param string $value
      * @return \Omnipay\Cardgate\Gateway
      */
     public function setApiKey($value)
@@ -79,7 +79,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
+     * @param string $value
      * @return \Omnipay\Cardgate\Gateway
      */
     public function setMerchantId($value)
@@ -98,7 +98,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
+     * @param string $value
      * @return \Omnipay\Cardgate\Gateway
      */
     public function setSiteId($value)
@@ -117,7 +117,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
+     * @param string $value
      * @return \Omnipay\Cardgate\Gateway
      */
     public function setIpAddress($value)
@@ -136,7 +136,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
+     * @param string $value
      * @return \Omnipay\Cardgate\Gateway
      */
     public function setNotifyUrl($value)
@@ -155,7 +155,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
+     * @param string $value
      * @return \Omnipay\Cardgate\Gateway
      */
     public function setReturnUrl($value)
@@ -174,7 +174,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
+     * @param string $value
      * @return \Omnipay\Cardgate\Gateway
      */
     public function setCancelUrl($value)
@@ -193,7 +193,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
+     * @param string $value
      * @return \Omnipay\Cardgate\Gateway
      */
     public function setLanguage($value)
