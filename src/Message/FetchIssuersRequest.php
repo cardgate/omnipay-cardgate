@@ -11,7 +11,10 @@
 
 namespace Omnipay\Cardgate\Message;
 
+
 use Guzzle\Http\Exception\BadResponseException;
+//use http\Client\Curl\User;
+
 
 /**
  * FetchIssuersRequest class - it fetches Issuers.
@@ -33,24 +36,25 @@ class FetchIssuersRequest extends AbstractRequest {
      * {@inheritdoc}
      */
     public function sendData( $data ) {
-        
-        // Test-API SSL cert issue
-        $this->setSslVerification();
-        
-        $request = $this->httpClient->get( $this->getUrl() . $this->endpoint );
-        $request->setAuth( $this->getMerchantId(), $this->getApiKey() );
-        $request->setHeader( 'Content-type', 'application/json' );
-        $request->addHeader( 'Accept', 'application/xml' );
-        
+
+	    $headers = $this->getHeaders();
+
         try {
-            $httpResponse = $request->send();
+	        $httpResponse = $this->httpClient->request(
+		        'GET',
+		        $this->getUrl() . $this->endpoint,
+		        $headers);
+
+			$this->response = new FetchIssuersResponse(
+				$this
+				, simplexml_load_string( $httpResponse->getBody()->getContents() )
+			);
+
         } catch (BadResponseException $e) {
-            if ( $this->getTestMode() ) throw new BadResponseException( "CardGate RESTful API gave : " . $e->getResponse()->getBody( true ) );
-            throw $e;
+			$this->response = new BadResponseException( "CardGate RESTful API gave : " . $e->getResponse()->getBody( true ) );
         }
 
-        return $this->response = new FetchIssuersResponse ($this, $httpResponse->xml() );
-        
+		return $this->response;
     }
 
 }

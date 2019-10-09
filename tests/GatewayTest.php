@@ -12,12 +12,12 @@ namespace Omnipay\Cardgate;
 
 use Omnipay\Tests\GatewayTestCase;
 use Omnipay\Omnipay;
-define( 'CG_SITEID', '1593' );
-define( 'CG_MERCHANTID', 'testaccount' );
-define( 'CG_APIKEY', 'TuZFZq6K2bPBi7VTkQNYM3JFlD21wz8tQ0sNCqODTZxJWKScRlVm366GaRoIlIdQ' );
-define( 'CG_NOTIFYURL', 'http://omnipay-cardgate.dev1.dbcorp.nl/notify.php' );
-define( 'CG_RETURNURL', 'http://omnipay-cardgate.dev1.dbcorp.nl/return.php' );
-define( 'CG_CANCELURL', 'http://omnipay-cardgate.dev1.dbcorp.nl/cancel.php' );
+define( 'CG_SITEID', '' );
+define( 'CG_MERCHANTID', '' );
+define( 'CG_APIKEY', '' );
+define( 'CG_NOTIFYURL', '' );
+define( 'CG_RETURNURL', '' );
+define( 'CG_CANCELURL', '' );
 
 /**
  * PHPUnit Gateway unittest
