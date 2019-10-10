@@ -39,28 +39,22 @@ class CompletePurchaseRequest extends PurchaseRequest
      */
 	public function sendData ( $data )
 	{
-		
-		// Test-API SSL cert issue
-		$this->setSslVerification();
-		
-		$this->httpClient->setBaseUrl( $this->getUrl() . $this->endpoint . $this->getTransactionId() );
-		$request = $this->httpClient->get( null, null, array( 
-				'transaction' => $data 
-		) );
-		
-		$request->setAuth( $this->getMerchantId(), $this->getApiKey() );
-		$request->addHeader( 'Accept', 'application/xml' );
-		
+
+		$headers = $this->getHeaders();
 		try {
-			$httpResponse = $request->send();
-		} catch ( BadResponseException $e ) {
-			if ( $this->getTestMode() ) {
-				throw new BadResponseException( "CardGate RESTful API gave : " . $e->getResponse()->getBody( true ) );
-			} else {
-				throw $e;
-			}
+			$httpResponse = $this->httpClient->request(
+				'GET',
+				$this->getUrl() . $this->endpoint . $this->getTransactionId(),
+				$headers);
+
+			$this->response = new CompletePurchaseResponse(
+				$this,
+				simplexml_load_string( $httpResponse->getBody()->getContents() )
+			);
+		} catch (BadResponseException $e){
+			$this->response = new BadResponseException( "CardGate RESTful API gave : " . $e->getResponse()->getBody( true ) );
 		}
-		
-		return new CompletePurchaseResponse( $this, $httpResponse->xml() );
+
+		return $this->response;
 	}
 }
