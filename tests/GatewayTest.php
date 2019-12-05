@@ -10,8 +10,13 @@
  */
 namespace Omnipay\Cardgate;
 
-use Omnipay\Tests\GatewayTestCase;
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 use Omnipay\Omnipay;
+use Omnipay\Tests\GatewayTestCase;
+
 define( 'CG_SITEID', '' );
 define( 'CG_MERCHANTID', '' );
 define( 'CG_APIKEY', '' );
