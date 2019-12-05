@@ -11,6 +11,7 @@
 namespace Omnipay\Cardgate;
 
 use Omnipay\Omnipay;
+
 use Omnipay\Tests\GatewayTestCase;
 
 define( 'CG_SITEID', '' );
