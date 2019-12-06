@@ -1,5 +1,5 @@
 {
-    "name": "RichardCardGate/omnipay-cardgate",
+    "name": "cardgate/omnipay-cardgate",
     "description": "Cardgate gateway for the Omnipay payment processing library",
     "keywords": [
         "gateway",
