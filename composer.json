@@ -21,7 +21,9 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Omnipay\\Cardgate\\" : "src/" }
+        "psr-4": {
+            "Omnipay\\Cardgate\\" : "src/"
+        }
     },
     "require": {
         "omnipay/common": "^3.0.2"
