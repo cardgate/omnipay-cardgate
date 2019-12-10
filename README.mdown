@@ -4,7 +4,6 @@
 
 [![Total Downloads](https://img.shields.io/packagist/dt/cardgate/omnipay-cardgate.svg)](https://packagist.org/packages/cardgate/cardgate-omnipay)
 [![Latest Version](https://img.shields.io/packagist/v/cardgate/omnipay-cardgate.svg)](https://github.com/cardgate/cardgate-omnipay/releases)
-[![Build Status](https://travis-ci.org/cardgate/omnipay-cardgate.svg?branch=master)](https://travis-ci.org/cardgate/cardgate-omnipay)
 
 ## Installation
 
