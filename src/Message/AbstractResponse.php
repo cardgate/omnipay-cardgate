@@ -8,7 +8,6 @@
  * https://github.com/cardgate/
  *
  */
- 
 namespace Omnipay\Cardgate\Message;
 
 use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
@@ -29,7 +28,8 @@ abstract class AbstractResponse extends BaseAbstractResponse {
     /**
      * {@inheritdoc}
      */
-    public function __construct( RequestInterface $request, $data ) {
+    public function __construct( RequestInterface $request, $data ) 
+    {
         parent::__construct( $request, $data );
         if ( isset( $this->data->error ) ) {
             $this->code = ( string ) $this->data->error->code;
@@ -40,21 +40,17 @@ abstract class AbstractResponse extends BaseAbstractResponse {
     /**
      * {@inheritdoc}
      */
-    public function getMessage() {
-        if ( !$this->isSuccessful() ) {
-            return $this->data;
-        }
-        return null;
+    public function getMessage() 
+    {
+        return $this->isSuccessful() ? null : $this->data;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getCode() {
-        if ( !$this->isSuccessful() ) {
-            return $this->code;
-        }
-        return null;
+    public function getCode()
+    {
+        return $this->isSuccessful() ? null : $this->code;
     }
 
 }

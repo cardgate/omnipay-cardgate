@@ -23,46 +23,53 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
     /**
      * {@inheritdoc}
      */
-    public function isSuccessful() {
+    public function isSuccessful() 
+    {
         return false;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function isRedirect() {
+    public function isRedirect() 
+    {
         return $this->data->payment->issuer_auth_url != '';
     }
 
-    public function isPending() {
+    public function isPending() 
+    {
         return $this->data->payment->action == 'pending';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getRedirectUrl() {
+    public function getRedirectUrl() 
+    {
         return  ( string ) $this->data->payment->issuer_auth_url;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getRedirectMethod() {
+    public function getRedirectMethod() 
+    {
         return 'GET';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getRedirectData() {
+    public function getRedirectData() 
+    {
         return null;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getTransactionId() {
+    public function getTransactionId()
+    {
         if ( isset( $this->data->payment ) && isset( $this->data->payment->transaction_id ) ) {
             return ( string ) $this->data->payment->transaction_id;
         }

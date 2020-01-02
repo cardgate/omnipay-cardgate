@@ -20,8 +20,8 @@ use Omnipay\Common\Issuer;
  *
  * @author Martin Schipper martin@cardgate.com
  */
-class FetchIssuersResponse extends BaseAbstractResponse implements FetchIssuersResponseInterface {
-
+class FetchIssuersResponse extends BaseAbstractResponse implements FetchIssuersResponseInterface 
+{
     /**
      * {@inheritdoc}
      */

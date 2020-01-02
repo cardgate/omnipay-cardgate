@@ -10,7 +10,10 @@
  */
 namespace Omnipay\Cardgate\Message;
 
-use Guzzle\Http\Exception\BadResponseException;
+use Exception;
+use Omnipay\Common\Exception\InvalidRequestException;
+use Omnipay\Common\Exception\InvalidResponseException;
+use Omnipay\Common\Message\ResponseInterface;
 
 /**
  * CompletePurchaseRequest class - It requests information about the
@@ -20,7 +23,6 @@ use Guzzle\Http\Exception\BadResponseException;
  */
 class CompletePurchaseRequest extends PurchaseRequest
 {
-
 	protected $endpoint = '/rest/v1/transactions/';
 
     /**
@@ -29,37 +31,38 @@ class CompletePurchaseRequest extends PurchaseRequest
 	public function getData ()
 	{
 		$this->validate( 'transactionId' );
-		return array( 
-				'id' => $this->getTransactionId() 
-		);
+		return [
+			'id' => $this->getTransactionId() 
+		];
 	}
 
     /**
      * {@inheritdoc}
      */
 	public function sendData ( $data )
-	{
-		
-		// Test-API SSL cert issue
-		$this->setSslVerification();
-		
-		$this->httpClient->setBaseUrl( $this->getUrl() . $this->endpoint . $this->getTransactionId() );
-		$request = $this->httpClient->get( null, null, array( 
-				'transaction' => $data 
-		) );
-		
-		$request->setAuth( $this->getMerchantId(), $this->getApiKey() );
-		$request->addHeader( 'Accept', 'application/xml' );
-		
+	{		
 		try {
+			$response = $this->httpClient->request('GET', ($this->getUrl() . $this->endpoint . $this->getTransactionId()), [
+                'Accept' => 'application/xml',
+				'Content-Type' => 'application/json',
+				'Authorization' => 'Basic '. base64_encode($this->getMerchantId() . ':' . $this->getApiKey()),
+			], http_build_query($data));
+			 
+			$httpResponse = simplexml_load_string($response->getBody()->getContents());
+
 			$httpResponse = $request->send();
-		} catch ( BadResponseException $e ) {
+		} catch (Exception $e) {
+
 			if ( $this->getTestMode() ) {
-				throw new BadResponseException( "CardGate RESTful API gave : " . $e->getResponse()->getBody( true ) );
-			} else {
+				throw new InvalidResponseException(
+					'CardGate RESTful API gave : ' . $e->getMessage(),
+					$e->getCode()
+				);
+			} 
+			else {
 				throw $e;
 			}
-		}
+        }
 		
 		return new CompletePurchaseResponse( $this, $httpResponse->xml() );
 	}
