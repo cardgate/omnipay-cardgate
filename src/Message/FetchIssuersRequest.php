@@ -24,7 +24,7 @@ use Omnipay\Common\Message\ResponseInterface;
 class FetchIssuersRequest extends AbstractRequest 
 {    
     protected $endpoint = '/rest/v1/ideal/issuers/';
-
+    
     /**
      * {@inheritdoc}
      */

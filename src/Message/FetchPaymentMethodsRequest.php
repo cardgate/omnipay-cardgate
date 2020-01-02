@@ -23,12 +23,6 @@ use Omnipay\Common\Message\ResponseInterface;
  */
 class FetchPaymentMethodsRequest extends AbstractRequest 
 {
-
-    public function __construct()
-	{
-		dump('here');
-		dd($this->httpClient);
-	}
     protected $endpoint = '/rest/v1/billingoptions/';
 
     /**
