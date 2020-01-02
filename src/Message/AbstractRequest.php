@@ -25,24 +25,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     public function getUrl()
     {
-        if ($this->getTestMode()) {
-            return 'https://secure-staging.curopayments.net';
-        } else {
-            return 'https://secure.curopayments.net';
-        }
-    }
-
-    /**
-     * We need this because the hostname does not match the cert...
-     *
-     * @param bool $bTestmode_
-     */
-    protected function setSslVerification()
-    {
-        if ($this->getTestMode())
-            $this->httpClient->setSslVerification(false, false, 0); // disable ssl cert check
-        else
-            $this->httpClient->setSslVerification(); // set to defaults
+        return $this->getTestMode() ? 'https://secure-staging.curopayments.net' :' https://secure.curopayments.net';
     }
 
     // ------------ Request specific Getter'n'Setters ------------ //

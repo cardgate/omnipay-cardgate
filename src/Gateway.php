@@ -35,16 +35,16 @@ class Gateway extends AbstractGateway
      */
 	public function getDefaultParameters ()
 	{
-		return array(
-				'merchantId' => '',
-				'language' => 'nl',
-				'apiKey' => '',
-				'siteId' => '',
-				'notifyUrl' => '',
-				'returnUrl' => '',
-				'cancelUrl' => '',
-				'testMode' => false
-		);
+		return [
+			'merchantId' => '',
+			'language' => 'nl',
+			'apiKey' => '',
+			'siteId' => '',
+			'notifyUrl' => '',
+			'returnUrl' => '',
+			'cancelUrl' => '',
+			'testMode' => false
+		];
 	}
 	
 	// ------------ Getter'n'Setters ------------ //
@@ -201,27 +201,6 @@ class Gateway extends AbstractGateway
 		return $this->setParameter( 'language', $value );
 	}
 
-	/**
-	 *
-	 * @return string
-	 */
-	/*
-	 * public function getPaymentMethod()
-	 * {
-	 * return $this->getParameter( 'paymentMethod' );
-	 * }
-	 */
-	/**
-	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
-	 */
-	/*
-	 * public function setPaymentMethod( $value )
-	 * {
-	 * return $this->setParameter( 'paymentMethod', $value );
-	 * }
-	 */
 	
 	// ------------ Requests ------------ //
 	

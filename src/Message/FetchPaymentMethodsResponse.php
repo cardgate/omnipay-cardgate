@@ -25,14 +25,16 @@ class FetchPaymentMethodsResponse extends BaseAbstractResponse implements FetchP
     /**
      * {@inheritdoc}
      */
-    public function isSuccessful() {
+    public function isSuccessful() 
+    {
         return isset( $this->data->billing_options );
     }
     
     /**
      * {@inheritdoc}
      */
-    public function getPaymentMethods() {
+    public function getPaymentMethods() 
+    {
         $methods = array();
         if ( isset( $this->data->billing_options ) ) {
             foreach ( $this->data->billing_options->billing_option as $billing_option ) {
