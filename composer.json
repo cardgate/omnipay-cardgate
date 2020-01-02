@@ -24,10 +24,12 @@
         "psr-4": { "Omnipay\\Cardgate\\" : "src/" }
     },
     "require": {
-        "omnipay/common": "~2.3"
+        "league/omnipay": "^3.0"
     },
     "require-dev": {
-        "omnipay/tests": "~2.0"
+        "omnipay/tests": "^3.1",
+        "squizlabs/php_codesniffer": "^3.4",
+        "phpunit/phpunit": "^6.0"
     },
     "extra": {
         "branch-alias": {

@@ -18,7 +18,6 @@ namespace Omnipay\Cardgate\Message;
  */
 class CompletePurchaseResponse extends PurchaseResponse
 {
-
     /**
      * {@inheritdoc}
      */
@@ -35,10 +34,9 @@ class CompletePurchaseResponse extends PurchaseResponse
 		$status = $this->getStatus();
 		if ( ! is_null( $status ) ) {
 			return $status;
-		} elseif ( ! is_null( $this->code ) ) {
-			return $this->data;
 		}
-		return null;
+		return ( !is_null( $this->code ) ) ? $this->data : null;
+
 	}
 
     /**
@@ -46,10 +44,7 @@ class CompletePurchaseResponse extends PurchaseResponse
      */
 	public function getStatus ()
 	{
-		if ( isset( $this->data->transaction->status ) ) {
-			return ( string ) $this->data->transaction->status;
-		}
-		return null;
+		return ( isset( $this->data->transaction->status ) ) ? ( string ) $this->data->transaction->status : null;
 	}
 
     /**
@@ -57,9 +52,6 @@ class CompletePurchaseResponse extends PurchaseResponse
      */
 	public function getTransactionId ()
 	{
-		if ( isset( $this->data->transaction->transaction_id ) ) {
-			return ( string ) $this->data->transaction->transaction_id;
-		}
-		return false;
+		return ( isset( $this->data->transaction->transaction_id ) ) ? ( string ) $this->data->transaction->transaction_id : false;
 	}
 }
