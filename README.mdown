@@ -1,4 +1,4 @@
-![CardGate](https://cdn.curopayments.com/thumb/200/logos/cardgate.png)
+![CardGate](https://cdn.curopayments.net/thumb/200/logos/cardgate.png)
 
 # CardGate plugin for [Omnipay](https://github.com/omnipay/omnipay) #
 
