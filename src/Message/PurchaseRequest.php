@@ -84,27 +84,26 @@ class PurchaseRequest extends AbstractRequest
 	public function sendData ( $data )
 	{
 		
-		// Test-API SSL cert issue
-		$this->setSslVerification();
-		
 		$jsonData = json_encode( array( 
 				'payment' => $data 
 		) );
-		
-		$this->httpClient->setBaseUrl( $this->getUrl() . $this->endpoint . $this->getPaymentMethod() . '/payment/' );
-		$request = $this->httpClient->post( null, null, $jsonData );
-		$request->setAuth( $this->getMerchantId(), $this->getApiKey() );
-		$request->setHeader( 'Content-type', 'application/json' );
-		$request->addHeader( 'Accept', 'application/xml' );
-		
+		$headers = $this->getHeaders();
 		try {
-			$httpResponse = $request->send();
-		} catch ( BadResponseException $e ) {
-			$e->getResponse()->getBody(1); // ugly; but else ->xml() will fail
-			return new PurchaseResponse( $this, $e->getResponse()->xml() );
+			$httpResponse = $this->httpClient->request(
+				'POST',
+				$this->getUrl() . $this->endpoint . $this->getPaymentMethod() . '/payment/',
+				$headers,
+				$jsonData );
+
+			$this->response = new PurchaseResponse(
+				$this,
+				simplexml_load_string( $httpResponse->getBody()->getContents() )
+			);
+		} catch (BadResponseException $e){
+			$this->response = new BadResponseException( "CardGate RESTful API gave : " . $e->getResponse()->getBody( true ) );
 		}
-		
-		return new PurchaseResponse( $this, $httpResponse->xml() );
+
+		return $this->response;
 	}
 
 	/**

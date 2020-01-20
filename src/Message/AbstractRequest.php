@@ -20,6 +20,27 @@ use \Omnipay\Common\Message\AbstractRequest as BaseAbstractRequest;
 abstract class AbstractRequest extends BaseAbstractRequest
 {
 
+	/**
+	 * User Agent.
+	 *
+	 * This user agent will be sent with each API request.
+	 *
+	 * @var string
+	 */
+	protected $userAgent = 'Omnipay';
+	/**
+	 * Get headers.
+	 *
+	 * @return array
+	 */
+	protected function getHeaders()
+	{
+		$headers = ['User-Agent' => $this->userAgent,
+		            'Authorization' => 'Basic '.base64_encode($this->getMerchantId().":".$this->getApiKey()),
+					'Content-type' => 'application/json',
+					'Accept' => 'application/xml'];
+		return $headers;
+	}
     /**
      * Get live- or testURL.
      */
@@ -32,6 +53,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
         }
     }
 
+<<<<<<< HEAD
+=======
     /**
      * We need this because the hostname does not match the cert...
      *
@@ -45,6 +68,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
             $this->httpClient->setSslVerification(); // set to defaults
     }
 
+>>>>>>> 54be241d32e04ce8afb9261e2aee7a11ceb1fc66
     // ------------ Request specific Getter'n'Setters ------------ //
 
     // ------------ Getter'n'Setters ------------ //

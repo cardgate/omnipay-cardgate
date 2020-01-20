@@ -34,23 +34,24 @@ class FetchPaymentMethodsRequest extends AbstractRequest {
      */
     public function sendData( $data ) {
         
-        // Test-API SSL cert issue
-        $this->setSslVerification();
-        
-        $request = $this->httpClient->get( $this->getUrl() . $this->endpoint . $this->getSiteId() . '/' );
-        $request->setAuth( $this->getMerchantId(), $this->getApiKey() );
-        $request->setHeader( 'Content-type', 'application/json' );
-        $request->addHeader( 'Accept', 'application/xml' );
-        
-        try {
-            $httpResponse = $request->send();
-        } catch (BadResponseException $e) {
-            if ( $this->getTestMode() ) throw new BadResponseException( "CardGate RESTful API gave : " . $e->getResponse()->getBody( true ) );
-            throw $e;
-        }
-        
-        return $this->response = new FetchPaymentMethodsResponse( $this, $httpResponse->xml() );
-        
+	    $headers = $this->getHeaders();
+
+	    try {
+		    $httpResponse = $this->httpClient->request(
+			    'GET',
+			    $this->getUrl() . $this->endpoint . $this->getParameter( 'siteId' ),
+			    $headers);
+
+		    $this->response = new FetchPaymentMethodsResponse(
+			    $this,
+			    simplexml_load_string( $httpResponse->getBody()->getContents() )
+		    );
+	    } catch (BadResponseException $e){
+	    	$this->response = new BadResponseException( "CardGate RESTful API gave : " . $e->getResponse()->getBody( true ) );
+	    }
+
+	    return $this->response;
+
     }
 
 }

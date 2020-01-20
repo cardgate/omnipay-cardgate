@@ -10,8 +10,10 @@
  */
 namespace Omnipay\Cardgate;
 
-use Omnipay\Tests\GatewayTestCase;
 use Omnipay\Omnipay;
+
+use Omnipay\Tests\GatewayTestCase;
+
 define( 'CG_SITEID', '' );
 define( 'CG_MERCHANTID', '' );
 define( 'CG_APIKEY', '' );
