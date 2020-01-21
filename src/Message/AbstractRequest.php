@@ -52,27 +52,6 @@ abstract class AbstractRequest extends BaseAbstractRequest
             return 'https://secure.curopayments.net';
         }
     }
-
-<<<<<<< HEAD
-=======
-    /**
-     * We need this because the hostname does not match the cert...
-     *
-     * @param bool $bTestmode_
-     */
-    protected function setSslVerification()
-    {
-        if ($this->getTestMode())
-            $this->httpClient->setSslVerification(false, false, 0); // disable ssl cert check
-        else
-            $this->httpClient->setSslVerification(); // set to defaults
-    }
-
->>>>>>> 54be241d32e04ce8afb9261e2aee7a11ceb1fc66
-    // ------------ Request specific Getter'n'Setters ------------ //
-
-    // ------------ Getter'n'Setters ------------ //
-
     /**
      *
      * @return string
