@@ -28,6 +28,9 @@
     "require": {
         "omnipay/common": "^3.0.2"
     },
+    "require-dev": {
+        "omnipay/tests": "^2|^3"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "3.0.x-dev"
