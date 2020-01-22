@@ -59,7 +59,7 @@ class GatewayTest extends GatewayTestCase
 		 *
 		 * @var \Omnipay\Cardgate\Message\FetchIssuersRequest $request
 		 */
-		$response = $this->gateway->fetchIssuers();
+		$response = $this->gateway->fetchIssuers()->send();
 		$this->assertInstanceOf( 'Omnipay\Cardgate\Message\FetchIssuersResponse', $response );
 		$issuers = $response->getIssuers();
 		$this->assertInstanceOf( 'Omnipay\Common\Issuer', next ( $issuers ) );
@@ -71,7 +71,7 @@ class GatewayTest extends GatewayTestCase
 		 *
 		 * @var \Omnipay\Cardgate\Message\FetchIssuersRequest $request
 		 */
-		$response = $this->gateway->fetchPaymentMethods();
+		$response = $this->gateway->fetchPaymentMethods()->send();
 		$this->assertInstanceOf( 'Omnipay\Cardgate\Message\FetchPaymentMethodsResponse', $response );
 		$paymentmethods = $response->getPaymentMethods();
 		$this->assertInstanceOf( 'Omnipay\Common\PaymentMethod', next ( $paymentmethods ) );
