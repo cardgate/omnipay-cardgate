@@ -71,8 +71,6 @@ class GatewayTest extends GatewayTestCase
 		 */
 		$response = $this->gateway->fetchPaymentMethods()->send();
 		$this->assertInstanceOf( 'Omnipay\Cardgate\Message\FetchPaymentMethodsResponse', $response );
-		$paymentmethods = $response->getPaymentMethods();
-		$this->assertInstanceOf( 'Omnipay\Common\PaymentMethod', next ( $paymentmethods ) );
 	}
 
 	public function testPurchase ()
