@@ -25,7 +25,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     public function getUrl()
     {
-        return $this->getTestMode() ? 'https://secure-staging.curopayments.net' :' https://secure.curopayments.net';
+        return $this->getTestMode() ? 'https://secure-staging.curopayments.net' :'https://secure.curopayments.net';
     }
 
     // ------------ Request specific Getter'n'Setters ------------ //
