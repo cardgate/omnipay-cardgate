@@ -59,6 +59,10 @@ class PurchaseRequest extends AbstractRequest
 			'ip_address' => $this->getIpAddress(), 
 			'language' => $this->getLanguage() 
 		];
+		
+		if( $this->getAmountInteger() <= 0 ){
+			throw new InvalidRequestException( "Cardgate : Payment amount should be greater than Zero!" );
+		}
 
 		if ( $this->getPaymentMethod() == 'ideal' ) {
 			$data['issuer_id'] = $this->getIssuer();
